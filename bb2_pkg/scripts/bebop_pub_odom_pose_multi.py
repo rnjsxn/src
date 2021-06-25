@@ -11,6 +11,8 @@ class OdomPose:
     def __init__(self):
         rospy.init_node('bb2_pub_pose_odom', anonymous = True)
         rospy.Subscriber('/dk1/odom', Odometry, self.get_odom_cb )
+        rospy.Subscriber('/dk2/odom', Odometry, self.get_odom_cb )
+        rospy.Subscriber('/dk3/odom', Odometry, self.get_odom_cb )
         self.pub = rospy.Publisher('/bb2_pose_odom', Pos_XYZ_th, queue_size = 1)
         
         self.xyzth_now = Pos_XYZ_th()
